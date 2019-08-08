@@ -14,4 +14,14 @@ class ClassRoom extends Model
         'major',
         'max_student',
     ];
+
+    public function admins()
+    {
+        return $this->hasMany('App\Models\Admin', 'class_id', 'id');
+    }
+
+    public function students()
+    {
+        return $this->hasMany('App\Models\Student', 'class_id', 'id');
+    }
 }

@@ -260,10 +260,18 @@ desired effect
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="active">
-        <a href="{{route('classes')}}">
-        <i class="fa fa-link"></i>
-        <span>Classes</span></a></li>
-        <li><a href="{{route('classes.add-form')}}"><i class="fa fa-link"></i> <span>Create Classes</span></a></li>
+          <a href="{{route('classes.list')}}">
+            <i class="fa fa-link"></i>
+            <span>Classes</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{route('classes.add')}}">
+            <i class="fa fa-link"></i>
+            <span>Create Class</span>
+          </a>
+        </li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
