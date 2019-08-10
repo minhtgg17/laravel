@@ -18,7 +18,11 @@ Route::get('students', 'StudentController@index')->name('students');
 
 // Class Route
 Route::group(
-    ['prefix' => 'classes', 'as' => 'classes.'],
+    [
+        'prefix' => 'classes',
+        'as' => 'classes.',
+        'middleware' => ['auth', 'active.admin']
+    ],
     function () {
         Route::get('/', 'ClassRoomController@index')->name('list');
         Route::get('add', 'ClassRoomController@createForm')->name('add');
@@ -30,10 +34,14 @@ Route::group(
 );
 
 Route::group(
-    ['prefix' => 'admins', 'as' => 'admins'],
+    ['prefix' => 'admins', 'as' => 'admins.'],
     function (){
         Route::get('/', 'AdminController@index')->name('list');
         Route::get('class', 'AdminController@indexClass')->name('class');
+        Route::get('login', 'AdminController@getLogin')->name('getLogin');
+        Route::post('post-login', 'AdminController@postLogin')->name('postLogin');
+        Route::get('logout', 'AdminController@logout')->name('logout');
+        Route::get('register', 'AdminController@register')->name('register');
     }
 );
 
@@ -49,3 +57,4 @@ Route::get('/users', function(){
 Route::get('/admin_temp', function(){
     return view('admin.master');
 });
+

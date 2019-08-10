@@ -8,6 +8,13 @@ use App\Http\Requests\ClassRoomRequest;
 
 class ClassRoomController extends Controller
 {
+    // Ham chay vao dau tien khi co phuong thuc trong controller dc goi
+    function __construct()
+    {
+        // Dat middleware o day de luc nao cung check dau tien
+        $this->middleware(['auth', 'active.admin', 'uni.admin']);
+    }
+
     public function index()
     {   
         $classes = ClassRoom::all();
